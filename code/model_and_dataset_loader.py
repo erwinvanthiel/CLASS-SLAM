@@ -103,7 +103,7 @@ def load_dataset(args):
 
 	elif args.dataset_type == 'VOC2007':
 
-	    dataset = Voc2007Classification('trainval',
+	    dataset = Voc2007Classification(args.data, 'trainval',
 	                                    transform=transforms.Compose([
 	                    transforms.Resize((args.image_size, args.image_size)),
 	                    transforms.ToTensor(),

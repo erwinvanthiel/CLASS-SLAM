@@ -1,48 +1,8 @@
 # Champagne Taste on a Beer Budget: Better Budget Utilisation in Multi-label Adversarial Attacks
 
 # Abstract
-Multi-label classification is an important branch
-of classification problems as in many real world classification
-scenarios the subject belongs to multiple classes simultaneously.
-The classifiers have been shown to be vulnerable against small in-
-put perturbations, called adversarial examples. There are multi-
-class classifiers, in which data instances get assigned to a single
-class and multi-label classifiers, in which a data instance can
-be associated with multiple labels simultaneously. In multi-class
-scenarios these adversarial attacks are conventionally constrained
-by a perturbation magnitude budget in order to enforce visual
-imperceptibility. In the related studies concerning multi-label
-attacks there has been no notion of a budget, which results in
-clearly visible perturbations in the image.
-In this paper we develop attacks that cause the most severe
-disruptions in the binary label predictions, i.e. label flips, within
-a budget. To achieve this, we first conduct an empirical analysis
-to answer the applicability of the exiting single label attacks
-on multiple label problems. Our key observations are that
-targeting all labels simultaneously in small budgets leads to sub-
-optimal results, that all labels have different attackability and
-also that labels exhibit different correlation structures which
-influences their combined attackability. Moreover, we show that
-the loss function determines the prioritisation among labels
-during optimisation. We conclude that there are two methods
-that allow for more efficient budget utilisation. We can construct
-our loss function such that it ensures a prioritisation that is
-too greedy nor too patient for the budget. We can also put our
-focus on a subset of labels as opposed to targeting them all
-simultaneously.
-Because of this we design two distinct methods namely,
-Classification Landscape Attentive Subset Selection(CLASS) and
-Smart Loss-function for Attacks on Multi-label models (SLAM).
-CLASS comprises a subset of labels we will distribute our budget
-over, which was constructed while considering the labels their
-attackability and pairwise correlation. SLAM comprises a loss
-function that uses an estimate for the potential amount of flips to
-adapt the shape of its curve, and hence the label prioritisation.
-We extensively evaluate CLASS and SLAM on three data sets,
-against two state of the art models, namely Query2Label and
-ASL. Our evaluation results show that CLASS and SLAM are
-able to increase the flips given the budget constraint by up to
-131% and 61% respectively.
+Multi-label classification is an important branch of classification problems as in many real world classification scenarios an object can belong to multiple classes simultaneously. Deep learning based classifiers 
+perform well at image classification but their predictions have shown to be unstable when subject to small input distortions, called adversarial perturbations. There are multi-class classifiers, which assign images to a single class, and multi-label classifiers that attribute multiple labels to an image. In multi-class scenarios these adversarial attacks are conventionally constrained by a perturbation magnitude budget in order to enforce visual imperceptibility. In the related studies concerning multi-label attacks there has been no notion of a budget and this results in visible perturbations in the image. In this paper we develop attacks that cause the most severe disruptions in the binary label predictions, i.e. a maximum number of label flips, while adhering to a perturbation budget. To achieve this, we first analyse the applicability of the existing single label attack MI-FGSM on multi label problems. A naive way of using MI-FGSM in a multi-label scenario means using binary cross entropy loss and targeting all labels simultaneously. Our key observations are that targeting all labels simultaneously when restricted to a small budgets leads to inefficient budget use, that all labels have different attackability and also that labels exhibit different correlation structures which influences the combined attackability. Moreover, we show that the loss function determines the optimisation direction through prioritising labels with specific confidence values. We find that there are two different strategies to optimise budget use and propose two distinct methods namely, Smart Loss-function for Attacks on Multi-label models (SLAM) and Classification Landscape Attentive Subset Selection (CLASS). SLAM comprises a loss function that uses an estimate for the potential amount of flips to adapt the shape of the curve, and hence the label prioritisation. \class uses binary cross entropy loss but focuses the budget on merely a subset of the labels, which was constructed while considering label attackability and pairwise label correlation. \class does have the drawback that it relies on classifier specific heuristics for determining the size of the label subset. We extensively evaluate \slam and \class on three datasets, using two state of the art models, namely \q2l and \asl. Our evaluation results show that \class and \slam are able to increase the flips given the budget constraint by up to 131\% and 61\% respectively compared to naive MI-FGSM. 
 
 ## Run instructions:
 

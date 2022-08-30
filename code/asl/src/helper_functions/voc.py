@@ -135,15 +135,15 @@ def find_images_classification(root, dataset, set):
 
 
 class Voc2007Classification(data.Dataset):
-    def __init__(self, set, transform=None, target_transform=None, train=True, label_indices_positive=None, label_indices_negative=None):
+    def __init__(self, path, set, transform=None, target_transform=None, train=True, label_indices_positive=None, label_indices_negative=None):
         
         self.train = train
 
         
         if train == True:
-            self.root = '../VOC2007/VOCtrainval'
+            self.root = path+'/VOCtrainval'
         else:
-            self.root = '../VOC2007/VOCtest'
+            self.root = path+'/VOCtest'
         
         self.set = set
         self.path_devkit = os.path.join(self.root)
